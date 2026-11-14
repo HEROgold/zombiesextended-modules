@@ -1,10 +1,11 @@
 local ze = require("__zombiesextended-core__.lib")
+local cfg = require("configuration")
 
 local module_base = util.table.deepcopy(data.raw["module"]["productivity-module-3"])
 
-for x, productivity_module in pairs(productivity_modules) do
+for x, productivity_module in pairs(cfg.productivity_modules) do
     
-    item = util.table.deepcopy(module_base)
+    local item = util.table.deepcopy(module_base)
 
     item.name = productivity_module.name
     item.localised_name = { "module-name.productivity", tostring(productivity_module.teir) }
@@ -18,19 +19,12 @@ for x, productivity_module in pairs(productivity_modules) do
                   }
     item.order = item.order .. productivity_module.order
 
-    if settings.startup["zombies-use-seperate-tab"].value == true then        
+    if ze.separate_tab() then        
         item.subgroup = "ds-modules"
     end
     
-    table.insert(data.raw["technology"][productivity_module.technology].effects, { type = "unlock-recipe", recipe = productivity_module.name })
+    ze.unlock(productivity_module.technology, productivity_module.name)
 
-    data:extend({ entity, item,
-    {
-        type = "recipe",
-        name = productivity_module.name,
-        enabled = false,
-        energy_required = productivity_module.energy_required,
-        ingredients = ze.ingredients(productivity_module.ingredients),
-        results = ze.result(productivity_module.name)
-    }})
+    data:extend({ item,
+    ze.recipe(productivity_module)})
 end

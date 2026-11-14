@@ -1,5 +1,7 @@
+local ze = require("__zombiesextended-core__.lib")
+local cfg = require("configuration")
 
-for x, technology in pairs(technologies) do
+for x, technology in pairs(cfg.technologies) do
     
     data:extend({
         {
