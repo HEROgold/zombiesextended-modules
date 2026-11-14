@@ -14,7 +14,7 @@ technologies = {
     { order = "a-b-b", name = "speed-module-mk2", count = 600, time = 60, prerequisite = {"speed-module-mk1"}, ingredients = science_t6 },
     { order = "a-b-c", name = "speed-module-mk3", count = 800, time = 60, prerequisite = {"speed-module-mk2"}, ingredients = science_t6 },
     
-    { order = "a-c-a", name = "effectivity-module-mk1", count = 400, time = 60, prerequisite = {"effectivity-module-3"}, ingredients = science_t5 },
+    { order = "a-c-a", name = "effectivity-module-mk1", count = 400, time = 60, prerequisite = {"efficiency-module-3"}, ingredients = science_t5 },
     { order = "a-c-b", name = "effectivity-module-mk2", count = 600, time = 60, prerequisite = {"effectivity-module-mk1"}, ingredients = science_t6 },
     { order = "a-c-c", name = "effectivity-module-mk3", count = 800, time = 60, prerequisite = {"effectivity-module-mk2"}, ingredients = science_t6 },
     
@@ -30,7 +30,7 @@ data.raw["beacon"]["beacon"].next_upgrade = "beacon-mk1"
 beacons = {
     { order = "a", name = "beacon-mk1", health = 200, efficiency = 1, energy_con_kw = 960, supply_area = 3, module_slots = 2, next_upgrade = "beacon-mk2", craft_time = mk1_craft_time, ingredients = { {"beacon", 2},{"complex-processing-unit", 10} }, technology = "effect-transmission-mk1" },
     { order = "b", name = "beacon-mk2", health = 200, efficiency = 2, energy_con_kw = 1920, supply_area = 3, module_slots = 2, next_upgrade = "beacon-mk3", craft_time = mk2_craft_time, ingredients = { {"beacon-mk1", 2},{"complex-processing-unit", 10},{"vibranium-plate", 30} }, technology = "effect-transmission-mk2" },
-    { order = "c", name = "beacon-mk3", health = 200, efficiency = 3, energy_con_kw = 3840, supply_area = 3, module_slots = 2, next_upgrade = "", craft_time = mk3_craft_time, ingredients = { {"beacon-mk2", 2},{"complex-processing-unit", 10},{"vibranium-plate", 30} }, technology = "effect-transmission-mk3" },
+    { order = "c", name = "beacon-mk3", health = 200, efficiency = 3, energy_con_kw = 3840, supply_area = 3, module_slots = 2, craft_time = mk3_craft_time, ingredients = { {"beacon-mk2", 2},{"complex-processing-unit", 10},{"vibranium-plate", 30} }, technology = "effect-transmission-mk3" },
 }
 
 speed_modules = {
@@ -40,7 +40,7 @@ speed_modules = {
 }
 
 effectivity_modules = {
-    { order = "a", name = "effectivity-module-mk1", energy_consumption = -1, pollution = -0.2, teir = 4, energy_required = 120, ingredients = { {"effectivity-module-3", 3},{"complex-processing-unit", 20},{"vibranium-plate", 30} }, technology = "effectivity-module-mk1" },
+    { order = "a", name = "effectivity-module-mk1", energy_consumption = -1, pollution = -0.2, teir = 4, energy_required = 120, ingredients = { {"efficiency-module-3", 3},{"complex-processing-unit", 20},{"vibranium-plate", 30} }, technology = "effectivity-module-mk1" },
     { order = "b", name = "effectivity-module-mk2", energy_consumption = -2, pollution = -0.4, teir = 5, energy_required = 240, ingredients = { {"effectivity-module-mk1", 3},{"complex-processing-unit", 20},{"vibranium-plate", 30} }, technology = "effectivity-module-mk2" },
     { order = "c", name = "effectivity-module-mk3", energy_consumption = -3, pollution = -0.8, teir = 6, energy_required = 480, ingredients = { {"effectivity-module-mk2", 3},{"complex-processing-unit", 20},{"vibranium-plate", 30} }, technology = "effectivity-module-mk3" },
 }

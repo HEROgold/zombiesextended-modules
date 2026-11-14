@@ -1,17 +1,18 @@
+local ze = require("__zombiesextended-core__.lib")
 
-local module_base = util.table.deepcopy(data.raw["module"]["effectivity-module-3"])
+local module_base = util.table.deepcopy(data.raw["module"]["efficiency-module-3"])
 
 for x, effectivity_module in pairs(effectivity_modules) do
     
     item = util.table.deepcopy(module_base)
 
     item.name = effectivity_module.name
-    item.localised_name = { "module-name.effectivity", effectivity_module.teir }
+    item.localised_name = { "module-name.effectivity", tostring(effectivity_module.teir) }
     item.icon = "__zombiesextended-modules__/graphics/icons/" .. effectivity_module.name .. ".png"
     item.tier = effectivity_module.teir
     item.effect = { 
-                    consumption = { bonus = effectivity_module.energy_consumption },
-                    pollution = { bonus = effectivity_module.pollution }
+                    consumption = effectivity_module.energy_consumption,
+                    pollution = effectivity_module.pollution
                   }
 
     item.order = item.order .. effectivity_module.order
@@ -30,7 +31,7 @@ for x, effectivity_module in pairs(effectivity_modules) do
         name = effectivity_module.name,
         enabled = false,
         energy_required = effectivity_module.energy_required,
-        ingredients = effectivity_module.ingredients,
-        result = effectivity_module.name
+        ingredients = ze.ingredients(effectivity_module.ingredients),
+        results = ze.result(effectivity_module.name)
     }})
 end
