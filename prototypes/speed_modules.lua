@@ -11,7 +11,7 @@ for x, speed_module in pairs(cfg.speed_modules) do
     item.localised_name = { "module-name.speed", tostring(speed_module.teir) }
     item.icon = "__zombiesextended-modules__/graphics/icons/" .. speed_module.name .. ".png"    
     item.tier = speed_module.teir
-    item.effect = { speed = speed_module.speed, consumption = speed_module.energy_consumption}
+    item.effect = { speed = speed_module.speed, consumption = speed_module.energy_consumption, quality = speed_module.quality }
     
     item.order = item.order .. speed_module.order
 

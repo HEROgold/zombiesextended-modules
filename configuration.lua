@@ -32,10 +32,12 @@ local beacons = {
     { order = "c", name = "beacon-mk3", health = 200, efficiency = 3, energy_con_kw = 3840, supply_area = 3, module_slots = 2, craft_time = ze.craft_time.mk3, ingredients = { {"beacon-mk2", 2},{"complex-processing-unit", 10},{"vibranium-plate", 30} }, technology = "effect-transmission-mk3" },
 }
 
+-- Speed tiers scale vanilla speed module 3 (speed 0.5, quality -0.025): mk1 is
+-- twice its speed and quality penalty, mk2 three times, mk3 four times.
 local speed_modules = {
-    { order = "a", name = "speed-module-mk1", energy_consumption = 1, speed = 1, teir = 4, energy_required = 120, ingredients = { {"speed-module-3", 3},{"complex-processing-unit", 20},{"vibranium-plate", 30} }, technology = "speed-module-mk1" },
-    { order = "b", name = "speed-module-mk2", energy_consumption = 1.5, speed = 1.5, teir = 5, energy_required = 240, ingredients = { {"speed-module-mk1", 3},{"complex-processing-unit", 20},{"vibranium-plate", 30} }, technology = "speed-module-mk2" },
-    { order = "c", name = "speed-module-mk3", energy_consumption = 2, speed = 2, teir = 6, energy_required = 480, ingredients = { {"speed-module-mk2", 3},{"complex-processing-unit", 20},{"vibranium-plate", 30} }, technology = "speed-module-mk3" },
+    { order = "a", name = "speed-module-mk1", energy_consumption = 1, speed = 1, quality = -0.05, teir = 4, energy_required = 120, ingredients = { {"speed-module-3", 3},{"complex-processing-unit", 20},{"vibranium-plate", 30} }, technology = "speed-module-mk1" },
+    { order = "b", name = "speed-module-mk2", energy_consumption = 1.5, speed = 1.5, quality = -0.075, teir = 5, energy_required = 240, ingredients = { {"speed-module-mk1", 3},{"complex-processing-unit", 20},{"vibranium-plate", 30} }, technology = "speed-module-mk2" },
+    { order = "c", name = "speed-module-mk3", energy_consumption = 2, speed = 2, quality = -0.1, teir = 6, energy_required = 480, ingredients = { {"speed-module-mk2", 3},{"complex-processing-unit", 20},{"vibranium-plate", 30} }, technology = "speed-module-mk3" },
 }
 
 local effectivity_modules = {
