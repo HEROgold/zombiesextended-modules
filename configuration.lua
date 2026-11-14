@@ -50,8 +50,24 @@ local productivity_modules = {
     { order = "c", name = "productivity-module-mk3", productivity = 0.4, energy_consumption = 1.6, pollution = 0.3, speed = -0.15, teir = 6, energy_required = 480, ingredients = { {"productivity-module-mk2", 3},{"complex-processing-unit", 20},{"vibranium-plate", 30} }, technology = "productivity-module-mk3" },
 }
 
+-- Quality modules only exist with the quality mod. Each tier follows the
+-- productivity tiers: mk1 doubles the vanilla tier 3 bonus, mk2 triples it,
+-- mk3 quadruples it, and the speed penalty stays the same as vanilla.
+local quality_modules = {}
+if mods["quality"] then
+    table.insert(technologies, { order = "a-e-a", name = "quality-module-mk1", count = 400, time = 60, prerequisite = {"quality-module-3"}, ingredients = science_t5 })
+    table.insert(technologies, { order = "a-e-b", name = "quality-module-mk2", count = 600, time = 60, prerequisite = {"quality-module-mk1"}, ingredients = science_t6 })
+    table.insert(technologies, { order = "a-e-c", name = "quality-module-mk3", count = 800, time = 60, prerequisite = {"quality-module-mk2"}, ingredients = science_t6 })
+    quality_modules = {
+        { order = "a", name = "quality-module-mk1", quality = 0.05, speed = -0.05, teir = 4, energy_required = 120, ingredients = { {"quality-module-3", 3},{"complex-processing-unit", 20},{"vibranium-plate", 30} }, technology = "quality-module-mk1" },
+        { order = "b", name = "quality-module-mk2", quality = 0.075, speed = -0.05, teir = 5, energy_required = 240, ingredients = { {"quality-module-mk1", 3},{"complex-processing-unit", 20},{"vibranium-plate", 30} }, technology = "quality-module-mk2" },
+        { order = "c", name = "quality-module-mk3", quality = 0.1, speed = -0.05, teir = 6, energy_required = 480, ingredients = { {"quality-module-mk2", 3},{"complex-processing-unit", 20},{"vibranium-plate", 30} }, technology = "quality-module-mk3" },
+    }
+end
+
 return {
     technologies = technologies,
+    quality_modules = quality_modules,
     beacons = beacons,
     speed_modules = speed_modules,
     effectivity_modules = effectivity_modules,

@@ -8,7 +8,8 @@
     "dependencies": [
         "base >= 2.1.7",
         "zombiesextended-core >= 2.0.0",
-        "?zombiesextended-power"
+        "?zombiesextended-power",
+        "? quality"
     ],
     "description": "ZombiesExtended Modules adds more Powerful modules and Beacons. This mod is still being tuned, please check the changelog before upgrading the mod. Ps. No Zombies are added.",
     "factorio_version": "2.1"

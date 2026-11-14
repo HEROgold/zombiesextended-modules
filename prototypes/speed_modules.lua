@@ -19,7 +19,7 @@ for x, speed_module in pairs(cfg.speed_modules) do
         item.subgroup = "ds-modules"
     end
     
-    item.beacon_tint.primary = { 65, 65, 65 },
+    item.beacon_tint.primary = { 65, 65, 65 }
 
     ze.unlock(speed_module.technology, speed_module.name)
 
